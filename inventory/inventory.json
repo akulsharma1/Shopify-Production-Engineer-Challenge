@@ -1,0 +1,27 @@
+{
+	"products": [
+        {
+            "productName": "Product 1",
+            "sizes": [
+                {
+                    "sizeID": 12345,
+                    "size": "S",
+                    "Name": "New Prod ",
+                    "image": "https://youtube.com/"
+                },
+                {
+                    "sizeID": 123456,
+                    "size": "M",
+                    "Name": "New Prod 2",
+                    "image": "https://youtube.com/"
+                },
+                {
+                    "sizeID": 1234567,
+                    "size": "L",
+                    "Name": "New Prod 3",
+                    "image": "https://youtube.com/"
+                }
+            ]
+        }
+    ]
+}
