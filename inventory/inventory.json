@@ -1,27 +1,48 @@
 {
 	"products": [
-        {
-            "productName": "Product 1",
-            "sizes": [
-                {
-                    "sizeID": 12345,
-                    "size": "S",
-                    "Name": "New Prod ",
-                    "image": "https://youtube.com/"
-                },
-                {
-                    "sizeID": 123456,
-                    "size": "M",
-                    "Name": "New Prod 2",
-                    "image": "https://youtube.com/"
-                },
-                {
-                    "sizeID": 1234567,
-                    "size": "L",
-                    "Name": "New Prod 3",
-                    "image": "https://youtube.com/"
-                }
-            ]
-        }
-    ]
+		{
+			"productName": "Product 1",
+			"productID": "1",
+			"variants": [
+				{
+					"variantID": 12345,
+					"variantName": "New Prod ",
+					"size": "S",
+					"image": "https://youtube.com/",
+					"quantity": 1,
+					"price": 100
+				},
+				{
+					"variantID": 123456,
+					"variantName": "New Prod 2",
+					"size": "M",
+					"image": "https://youtube.com/",
+					"quantity": 1,
+					"price": 100
+				},
+				{
+					"variantID": 1234567,
+					"variantName": "New Prod 3",
+					"size": "L",
+					"image": "https://youtube.com/",
+					"quantity": 1,
+					"price": 100
+				}
+			]
+		},
+		{
+			"productName": "test",
+			"productID": "",
+			"variants": [
+				{
+					"variantID": 1,
+					"variantName": "test1",
+					"size": "test",
+					"image": "test",
+					"quantity": 1,
+					"price": 1
+				}
+			]
+		}
+	]
 }
