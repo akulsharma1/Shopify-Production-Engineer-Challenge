@@ -6,7 +6,7 @@ type Product struct {
 	Variants    []Variant `json:"variants"`
 }
 type Variant struct {
-	VariantID   int     `json:"variantID"`
+	VariantID   string  `json:"variantID"`
 	VariantName string  `json:"variantName"`
 	Size        string  `json:"size"`
 	Image       string  `json:"image"`
