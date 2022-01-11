@@ -6,14 +6,15 @@ import (
 	"io/ioutil"
 	"os"
 	"shopifyproductionengineertest/inventory"
+	"errors"
 )
-func ReadProducts() (bool, inventory.ProductList) {
+func ReadProducts() (inventory.ProductList, error) {
 	var prodListStruct inventory.ProductList
 	jsonFile, err := os.Open("./inventory/inventory.json")
 
 	if err != nil {
 		fmt.Println(err)
-		return false, inventory.ProductList{}
+		return inventory.ProductList{}, errors.New(err.Error())
 	}
 	defer jsonFile.Close()
 
@@ -24,5 +25,5 @@ func ReadProducts() (bool, inventory.ProductList) {
 		fmt.Println(prodListStruct.Products[i])
 	}
 
-	return true, prodListStruct
+	return prodListStruct, nil
 }
