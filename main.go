@@ -1,11 +1,68 @@
 package main
 
 import (
-	"shopifyproductionengineertest/inventory"
-	"shopifyproductionengineertest/managerfunctions"
+	"shopifyproductionengineertest/dbfunctions"
+
+	// "shopifyproductionengineertest/managerfunctions"
+	"fmt"
 )
 
 func main() {
-	managerfunctions.ReadProducts()
-	managerfunctions.CreateInventoryItem("test", []inventory.Variant{inventory.Variant{VariantID: "1", VariantName: "test1", Size: "test", Image: "test", Quantity: 1, Price: 1.0}})
+	client, err := dbfunctions.Init()
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	// err = dbfunctions.AddProduct(client, inventory.Product{
+	// 	ProductName: "Test Product",
+	// 	ProductID:   "testproduct",
+	// 	Variants: []inventory.Variant{
+	// 		inventory.Variant{
+	// 			VariantID: "testvariant",
+	// 			VariantName: "Test Variant",
+	// 			Size: "Test Size",
+	// 			Image: "Test Image",
+	// 			Quantity:  10,
+	// 			Price:     10.00,
+	// 		},
+	// 	},
+	// })
+
+	// if err != nil {
+	// 	fmt.Println(err)
+	// }
+
+	// err = dbfunctions.AddVariant(client, "testproduct", inventory.Variant{
+	// 	VariantID: "testvariant2",
+	// 	VariantName: "Test Variant",
+	// 	Size: "Test Size",
+	// 	Image: "Test Image",
+	// 	Quantity:  10,
+	// 	Price:     10.00,
+	// })
+
+	// err = dbfunctions.AddVariant(client, "testproduct", inventory.Variant{
+	// 	VariantID: "testvariant2",
+	// 	VariantName: "Test Variant",
+	// 	Size: "Test Size",
+	// 	Image: "Test Image",
+	// 	Quantity:  10,
+	// 	Price:     10.00,
+	// })
+
+	// err = dbfunctions.EditVariant(client, "testproduct", inventory.Variant{
+	// 	VariantID: "testvariant2",
+	// 	VariantName: "Test Variant edit",
+	// 	Size: "Test Size",
+	// 	Image: "Test Image",
+	// 	Quantity:  10,
+	// 	Price:     10.00,
+	// })
+		
+		dbfunctions.ListAllProducts(client)
+	// })
+
+	if err != nil {
+		fmt.Println(err)
+	}
 }
