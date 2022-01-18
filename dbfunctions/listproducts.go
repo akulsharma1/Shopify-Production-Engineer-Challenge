@@ -7,36 +7,29 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 )
-func ListAllProducts(client *mongo.Client) error {
+func ListAllProducts(client *mongo.Client) (inventory.ProductList, error) {
 	
 
-	// var v2 []inventory.Product
 	coll := client.Database(DbName).Collection(ProductCollectionName)
-	// _, err := coll.Find(ctx, bson.M{}).All(ctx, &p)
 	cursor, err := coll.Find(ctx, bson.M{})
 	
 	if err != nil {
-		fmt.Println("----")
-		fmt.Println(err)
-		fmt.Println("----")
+		return inventory.ProductList{}, err
 	}
 
+	var products inventory.ProductList
 	for cursor.Next(ctx) {
 		var p inventory.Product
 		err := cursor.Decode(&p)
 		if err != nil {
-			fmt.Println("***")
-			fmt.Println(err)
-			fmt.Println("***")
+			return inventory.ProductList{}, err
 		}
 		fmt.Println(p)
 
-		//v = append(v, p)
+		products.Products = append(products.Products, p)
 	}
-
-	// log.Println(v)
 
 	
 
-	return nil
+	return products, nil
 }
